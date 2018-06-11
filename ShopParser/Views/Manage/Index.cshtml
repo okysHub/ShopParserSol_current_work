@@ -1,0 +1,50 @@
+﻿@model ShopParser.UIRules.GraberMode
+
+@{
+    ViewBag.Title = "Online Shop Parser";
+}
+@{
+    var shopList = new List<SelectListItem> {
+new SelectListItem { Text = "https://cnc.prom.ua", Value = "1",Selected=true }};
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Parser</div>
+    <div class="panel-body">
+
+
+        <div>
+            @Html.DropDownList("Shop", shopList, "Select shop", new {@id="selectShop" })
+
+        </div>
+        <div id="resSatus">
+            @{Html.RenderPartial((string)ViewBag.SelectPV);}
+
+
+
+            <div id="loading" style="display:none; color:Red; font-weight:bold;">
+                <p>PleaseWait...</p>
+            </div>
+
+        </div>
+</div>
+    </div>
+
+<script type="text/javascript">
+  
+
+
+   
+
+    function HideButton() {
+        var styleAssign = "display:none";
+        
+        document.getElementById("buttons").style = styleAssign;
+       // $("buttons").style = styleAssign;
+
+    }
+
+
+
+
+</script>

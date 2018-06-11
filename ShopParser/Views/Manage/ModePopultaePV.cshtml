@@ -1,0 +1,9 @@
+﻿
+<div id="buttons">
+@Ajax.ActionLink("Get products", "RunGraber", null, new AjaxOptions{
+    UpdateTargetId = "resSatus" ,
+    LoadingElementId ="loading",
+    OnBegin = "HideButton" }, new { @class = "btn btn-info", @id="runAjLink" })
+</div>
+
+

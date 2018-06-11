@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB86133E-11C9-4DA9-90CF-4467551C1E7D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DomModelParser</RootNamespace>
+    <AssemblyName>DomModelParser</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.9.9.2\lib\net45\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomParserHelper\DomProvider.cs" />
+    <Compile Include="Pages\PageComponents\ShopProductComponent.cs" />
+    <Compile Include="Pages\PageComponents\ShopProductsGalery.cs" />
+    <Compile Include="Pages\ShopSpecificProductPage.cs" />
+    <Compile Include="ProductGrabber\Graber.cs" />
+    <Compile Include="DomParserHelper\HTMLAnchorDetail.cs" />
+    <Compile Include="DomParserHelper\IDataExtractor.cs" />
+    <Compile Include="DomParserHelper\IDomElementsProvider.cs" />
+    <Compile Include="Pages\PageComponents\IMenuNavigator.cs" />
+    <Compile Include="ProductGrabber\IGrabStrategy.cs" />
+    <Compile Include="ProductGrabber\IproductGrabber.cs" />
+    <Compile Include="Pages\Page.cs" />
+    <Compile Include="DomParserHelper\PageInfoExtractor.cs" />
+    <Compile Include="ProductGrabber\IStrategyResult.cs" />
+    <Compile Include="ProductGrabber\PopulateModelStrategy.cs" />
+    <Compile Include="ProductGrabber\ProductModelDTO.cs" />
+    <Compile Include="Pages\PageComponents\ShopMenu.cs" />
+    <Compile Include="Pages\ShopPage.cs" />
+    <Compile Include="Pages\ShopProductsPage.cs" />
+    <Compile Include="ProductGrabber\ProductsCollection.cs" />
+    <Compile Include="ProductGrabber\UpdatePriceHistoryStrategy.cs" />
+    <Compile Include="ProductGrabber\UpdatePricesStrategy.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webrequestor\ClearedRawContentLoader.cs" />
+    <Compile Include="Webrequestor\ClearLoaderFactory.cs" />
+    <Compile Include="Webrequestor\HTMLLoaderFactory.cs" />
+    <Compile Include="Webrequestor\LooderCreator.cs" />
+    <Compile Include="Webrequestor\IHTMLCleaner.cs" />
+    <Compile Include="Webrequestor\RawContenLoader.cs" />
+    <Compile Include="Webrequestor\IHTMLContentLoader.cs" />
+    <Compile Include="Webrequestor\RawLoaderFactory.cs" />
+    <Compile Include="Webrequestor\ScriptTagClear.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

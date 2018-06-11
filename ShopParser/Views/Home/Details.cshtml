@@ -1,0 +1,78 @@
+﻿@model ShopParser.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+           @Html.DisplayNameFor(model => model.ProductPageUrl)
+        </dt>
+
+        <dd>
+            <a href="@Html.DisplayFor(model => model.ProductPageUrl)">Open</a>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductImageURL)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.ProductImageURL)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceHistory)
+        </dt>
+        <dd>
+            <div>
+
+
+                @foreach (var priceItem in Model.PriceHistory)
+                {
+                                                             
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>@Html.DisplayFor(hist => priceItem.UpdateDate)</b></div>
+                            <div class="panel-body">@Html.DisplayFor(hist => priceItem.Price)</div>
+                        </div>
+                    
+
+                }
+
+            </div>
+</dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopParser", "ShopParser\ShopParser.csproj", "{8DEECDC5-EFA9-4FEB-B578-BC0B8FE483DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomModelParser", "DomModelParserSol_work_JUN_08_1\DomModelParser\DomModelParser.csproj", "{CB86133E-11C9-4DA9-90CF-4467551C1E7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DEECDC5-EFA9-4FEB-B578-BC0B8FE483DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEECDC5-EFA9-4FEB-B578-BC0B8FE483DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DEECDC5-EFA9-4FEB-B578-BC0B8FE483DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DEECDC5-EFA9-4FEB-B578-BC0B8FE483DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB86133E-11C9-4DA9-90CF-4467551C1E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB86133E-11C9-4DA9-90CF-4467551C1E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB86133E-11C9-4DA9-90CF-4467551C1E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB86133E-11C9-4DA9-90CF-4467551C1E7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23DA7D08-7326-422C-91E0-2966CBCA6C2B}
+	EndGlobalSection
+EndGlobal

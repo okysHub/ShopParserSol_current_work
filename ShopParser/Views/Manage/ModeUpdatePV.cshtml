@@ -1,0 +1,11 @@
+﻿
+<div id="buttons">
+    @Ajax.ActionLink("Update prices", "UpdatePrice", null, new AjaxOptions{
+      UpdateTargetId = "resSatus" ,
+      LoadingElementId ="loading",
+      OnBegin = "HideButton" }, new { @class = "btn btn-info", @id="clearBTn" })
+    @Ajax.ActionLink("Clear DB", "ClearDb", null, new AjaxOptions{
+      UpdateTargetId = "resSatus" ,
+      LoadingElementId ="loading",
+      OnBegin = "HideButton" }, new { @class = "btn btn-info", @id="clearBTn" })
+</div>
