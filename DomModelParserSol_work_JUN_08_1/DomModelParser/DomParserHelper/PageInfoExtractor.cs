@@ -58,15 +58,29 @@ namespace DomModelParser.DomParserHelper
 
         public string ExtractProductDescription(string url)
         {
+            StringBuilder sb = new StringBuilder();
              HtmlParser parser = new HtmlParser();
             IHtmlDocument document;
              Webrequestor.IHTMLContentLoader graber = Webrequestor.LooderCreator.Loader;
            
             document = parser.Parse(graber.LoadContent("http://www.wartonlogo.com"+url));
+
           var t=  document.GetElementsByClassName("listul")[0];
 
+            var spanElems = t.GetElementsByTagName("li");
+
+            foreach (var spanTe in spanElems)
+            {
+                var ind = spanTe.InnerHtml.IndexOf("</span>");
+                var len = spanTe.InnerHtml.Length;
+                var clear = spanTe.InnerHtml.Substring(ind+ "</span>".Length);
+                sb.Append(clear);
+                sb.Append("@");
+            }
+
             //return anchorElement.Title;
-            return t.InnerHtml;
+            var yuyu= sb.ToString();
+            return yuyu;
         }
 
         public string ExtractProductImgURL(IElement el)
