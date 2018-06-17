@@ -15,12 +15,11 @@ namespace DomModelParser.DomParserHelper
         public string ExtractProductName(IElement el)
         {
             string nameDefault = "NA";
-
-            var AnchWithName = el.GetElementsByTagName("a")[0];
-
-            var brText = AnchWithName.TextContent;
-
-            nameDefault = brText;
+            var spanwithName = el.GetElementsByClassName("cs-product-gallery__sku cs-goods-sku");
+            foreach (var spanItem in spanwithName)
+            {
+                nameDefault = spanItem.TextContent;
+            }
             return nameDefault;
         }
 
@@ -42,9 +41,8 @@ namespace DomModelParser.DomParserHelper
 
         public string ExtractProductURL(IElement el)
         {
-            IHtmlAnchorElement anchorElement = (IHtmlAnchorElement)el.GetElementsByTagName("a")[0];
-            var url= anchorElement.PathName;
-            return url;
+            IHtmlAnchorElement anchorElement = (IHtmlAnchorElement)el.GetElementsByClassName("cs-product-gallery__image-link")[0];
+            return anchorElement.Href;
         }
         public HTMLAnchorDetail extractAchrorInfo(IElement anchor)
         {
@@ -56,40 +54,46 @@ namespace DomModelParser.DomParserHelper
             };
         }
 
-        public string ExtractProductDescription(string url)
+        public string ExtractProductDescription(IElement el)
         {
-            StringBuilder sb = new StringBuilder();
-             HtmlParser parser = new HtmlParser();
-            IHtmlDocument document;
-             Webrequestor.IHTMLContentLoader graber = Webrequestor.LooderCreator.Loader;
-           
-            document = parser.Parse(graber.LoadContent("http://www.wartonlogo.com"+url));
+            IHtmlAnchorElement anchorElement = (IHtmlAnchorElement)el.GetElementsByClassName("cs-product-gallery__image-link")[0];
 
-          var t=  document.GetElementsByClassName("listul")[0];
-
-            var spanElems = t.GetElementsByTagName("li");
-
-            foreach (var spanTe in spanElems)
-            {
-                var ind = spanTe.InnerHtml.IndexOf("</span>");
-                var len = spanTe.InnerHtml.Length;
-                var clear = spanTe.InnerHtml.Substring(ind+ "</span>".Length);
-                sb.Append(clear);
-                sb.Append("@");
-            }
-
-            //return anchorElement.Title;
-            var yuyu= sb.ToString();
-            return yuyu;
+            return anchorElement.Title;
         }
 
         public string ExtractProductImgURL(IElement el)
         {
             string defImgSrc = "";
-            var imgTag = el.GetElementsByTagName("img")[0];
-            defImgSrc = imgTag.GetAttribute("src");
+             var anchor= el.GetElementsByClassName("cs-product-gallery__image-link")[0];
+            var anchChilds = anchor.ChildNodes[0];
 
-            
+            var img1 = anchor.GetElementsByClassName("cs-product-gallery__image img-ondemand");
+            var img2 = anchor.GetElementsByClassName("cs-product-gallery__image");
+
+            if (img1.Length > 0)
+            {
+             return   defImgSrc = ((IHtmlImageElement)img1[0]).GetAttribute("longdesc");
+            }
+            if (img2.Length > 0)
+            {
+              return  defImgSrc = ((IHtmlImageElement)img2[0]).Source;
+            }
+
+            // var img = anchor.GetElementsByClassName("cs - product - gallery__image");
+
+            /*  var srcToCheck = ((IHtmlImageElement)anchChilds).Source;
+
+              if (srcToCheck == "https://static-cache.ua.uaprom.net/image/empty.gif?r=1155d595e2b807e59a7982523d601952")
+              {
+                  Console.WriteLine("dsds");
+              }
+              */
+            //return ((IHtmlImageElement)anchChilds).Source;
+            //            return ((IHtmlImageElement)img).Source;
+            if (defImgSrc == "https://static-cache.ua.uaprom.net/image/empty.gif?r=1155d595e2b807e59a7982523d601952")
+            {
+                Console.WriteLine("dsds");
+            }  
             return defImgSrc;
 
         }

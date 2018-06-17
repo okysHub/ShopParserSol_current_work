@@ -13,7 +13,7 @@ namespace DomModelParser.DomParserHelper
         string ExtractProductURL(IElement el);
         decimal ExtractProductPrice(IElement el);
         HTMLAnchorDetail extractAchrorInfo(IElement anchor);
-        string ExtractProductDescription(string url);
+        string ExtractProductDescription(IElement el);
         string ExtractProductImgURL(IElement el);
 
 

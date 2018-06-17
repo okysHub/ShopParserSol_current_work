@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MenuUrl)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -40,13 +40,10 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MenuUrl)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.Raw("<ul class='listul'>"+item.Description+"</ul>")
-
-
-
+                    @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
                     <a href="@Html.DisplayFor(modelItem => item.ProductPageUrl)">See Here</a>
@@ -64,23 +61,3 @@
         }
 
 </table>
-<style>
-    .listul > li {
-        height: 36px;
-        line-height: 35px;
-        color: #666;
-        font-size: 5px;
-        border-bottom: 2px solid #ddd;
-    }
-
-        .listul > li > span {
-            display: block;
-            float: left;
-            min-width: 50px;
-            margin-right: 10px;
-            width: 160px;
-            background-color: #000;
-            color: #fff;
-            padding-left: 15px;
-        }
-</style>

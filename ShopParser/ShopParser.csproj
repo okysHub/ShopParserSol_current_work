@@ -53,11 +53,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -65,7 +61,6 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -183,10 +178,6 @@
     <Compile Include="Migrations\201806092128243_AddCompanyMigration.Designer.cs">
       <DependentUpon>201806092128243_AddCompanyMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806171533195_AddCompanyMigration1.cs" />
-    <Compile Include="Migrations\201806171533195_AddCompanyMigration1.Designer.cs">
-      <DependentUpon>201806171533195_AddCompanyMigration1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Product.cs" />
@@ -245,7 +236,6 @@
     <Content Include="Views\Manage\ModeUpdatePV.cshtml" />
     <Content Include="Views\Home\EmptyDetailParamError.cshtml" />
     <Content Include="Views\Manage\GraberWorkingMessage.cshtml" />
-    <Content Include="Views\Home\tran.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -267,9 +257,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806092128243_AddCompanyMigration.resx">
       <DependentUpon>201806092128243_AddCompanyMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806171533195_AddCompanyMigration1.resx">
-      <DependentUpon>201806171533195_AddCompanyMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
