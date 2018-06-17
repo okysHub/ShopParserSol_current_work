@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using DomModelParser.ProductGrabber;
 using Newtonsoft.Json;
+using OfficeOpenXml;
+using System.IO;
 
 namespace ShopParser.Controllers
 {
@@ -20,10 +22,54 @@ namespace ShopParser.Controllers
 
         public ActionResult Index()
         {
+           /* ExcelPackage excel = new ExcelPackage();
+
+            var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+            var data = db.Products;
+            workSheet.Cells[1, 1].LoadFromCollection(data, true);
+
+            using (var memoryStream = new MemoryStream())
+            {
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AddHeader("content-disposition", "attachment;  filename=Contact.xlsx");
+                excel.SaveAs(memoryStream);
+                memoryStream.WriteTo(Response.OutputStream);
+                Response.Flush();
+                Response.End();
+            }
+            */
+
 
             ViewBag.ProdCount = db.Products.Count();
 
             return View(db.Products);
+        }
+
+        public ActionResult Tran()
+        {
+            /* ExcelPackage excel = new ExcelPackage();
+
+             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+             var data = db.Products;
+             workSheet.Cells[1, 1].LoadFromCollection(data, true);
+
+             using (var memoryStream = new MemoryStream())
+             {
+                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                 Response.AddHeader("content-disposition", "attachment;  filename=Contact.xlsx");
+                 excel.SaveAs(memoryStream);
+                 memoryStream.WriteTo(Response.OutputStream);
+                 Response.Flush();
+                 Response.End();
+             }
+             */
+
+
+          
+
+            return View(db.Products.FirstOrDefault());
         }
         public ActionResult Details(int? id)
         {

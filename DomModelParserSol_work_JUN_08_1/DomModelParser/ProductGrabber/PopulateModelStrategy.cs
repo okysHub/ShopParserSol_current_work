@@ -35,7 +35,7 @@ namespace DomModelParser.ProductGrabber
 
             Pages.ShopProductsPage productPage = navigator.Navigate();
 
-            collectProducts(productPage.ProductsGalery);
+            collectProducts(productPage.ProductsGalery, menu);
 
 
 
@@ -44,9 +44,9 @@ namespace DomModelParser.ProductGrabber
 
         }
 
-        private void collectProducts(IList<Pages.PageComponents.ShopProductsGalery> galery)
+        private void collectProducts(IList<Pages.PageComponents.ShopProductsGalery> galery, Pages.PageComponents.ShopMenu menuItem)
         {
-             var productModelRange = galery.Select(x=>new ProductModelDTO() { Name=x.Name, Description=x.Description, Price=x.Price, ProductImageURL=x.ProductImageURL, ProductPageUrl=x.ProductPageUrl});
+             var productModelRange = galery.Select(x=>new ProductModelDTO() { Name=x.Name, Description=x.Description, Price=x.Price, ProductImageURL=x.ProductImageURL, ProductPageUrl=x.ProductPageUrl, MenuLink=menuItem.Href});
              var productModelRangeListed = productModelRange.ToList();
             modeoList.AddRange(productModelRangeListed);
 

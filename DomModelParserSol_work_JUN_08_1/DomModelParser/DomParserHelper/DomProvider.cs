@@ -45,21 +45,76 @@ namespace DomModelParser.DomParserHelper
         private IList<Pages.PageComponents.ShopMenu> prepareMenu()
         {
             IList<Pages.PageComponents.ShopMenu> menuDTOArray = new List<Pages.PageComponents.ShopMenu>();
+            /*
+            IElement menuRootUL = document.GetElementsByClassName("nav")[0];
+           
+            var fullNav3 = menuRootUL.GetElementsByClassName("third-nav");
 
-          
-            IElement menuList = document.GetElementsByClassName("cs-nav")[0];
+
+            foreach (var UlItem in fullNav3.Where(x=>x.ChildElementCount==2))
+            {
+                int menuItemsCoun = UlItem.ChildElementCount;
+
+                for (int i = 0; i < menuItemsCoun; i++)
+                {
+                    var menuElement = (IHtmlListItemElement)UlItem.Children[i];
+                    IElement aHrefelem = (IElement)menuElement.ChildNodes[0];
+                    HTMLAnchorDetail ancdDetail = extractor.extractAchrorInfo(aHrefelem);
+
+
+                    menuDTOArray.Add(new Pages.PageComponents.ShopMenu { Href = invokedPage.ShopUrl + ancdDetail.Href, ItemName = ancdDetail.Name });
+                }
+
+            }
+            */
+
+
+            // AngleSharp.Dom.
+
+            /*
+            var p = "dsd";
+         
+
+            IElement menuList = document.GetElementsByClassName("third-nav")[0]; //static
 
             int menuItemsCount = menuList.ChildElementCount;
 
-            for (int i = 1; i < menuItemsCount; i++)
+            for (int i = 0; i < menuItemsCount; i++)
             {
-                IElement menuElement = (IElement)menuList.ChildNodes[i];
+                var menuElement = (IHtmlListItemElement)menuList.Children[i];
                 IElement aHrefelem = (IElement)menuElement.ChildNodes[0];
                 HTMLAnchorDetail ancdDetail = extractor.extractAchrorInfo(aHrefelem);
 
 
                 menuDTOArray.Add(new Pages.PageComponents.ShopMenu { Href = invokedPage.ShopUrl+ancdDetail.Href, ItemName = ancdDetail.Name });
             }
+            */
+            menuDTOArray.Add(
+                new Pages.PageComponents.ShopMenu { ItemName= "Static/15W/", Href= "http://www.wartonlogo.com/Projectors/Static/15W/" }
+                );
+
+            menuDTOArray.Add(
+                new Pages.PageComponents.ShopMenu { ItemName = "Static/30W/", Href = "http://www.wartonlogo.com/Projectors/Static/30W/" }
+                );
+
+            menuDTOArray.Add(
+               new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/15W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/15W/" }
+               );
+
+            menuDTOArray.Add(
+              new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/30W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/30W/" }
+              );
+
+            menuDTOArray.Add(
+            new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/40W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/40W/" }
+            );
+
+            menuDTOArray.Add(
+           new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/60W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/60W/" }
+           );
+            menuDTOArray.Add(
+          new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/80W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/80W/" }
+          );
 
 
             return menuDTOArray;
@@ -69,7 +124,7 @@ namespace DomModelParser.DomParserHelper
         private IList<Pages.PageComponents.ShopProductsGalery> prepareGalery()
         {
             IList<Pages.PageComponents.ShopProductsGalery> galery = new List<Pages.PageComponents.ShopProductsGalery>();
-            IHtmlCollection<IElement> galeryListULCollection = document.GetElementsByClassName("cs-product-gallery");
+            IHtmlCollection<IElement> galeryListULCollection = document.GetElementsByClassName("porjecontrs2");  //cs-product-gallery -for cnc
             if (galeryListULCollection.Count() > 0)
             {
 
@@ -79,14 +134,16 @@ namespace DomModelParser.DomParserHelper
 
                 foreach (IElement liItem in lICollection)
                 {
+                    var extractedPageUrl=extractor.ExtractProductURL(liItem);
                     galery.Add(
                         new Pages.PageComponents.ShopProductsGalery()
                         {
                             Name = extractor.ExtractProductName(liItem),
-                            ProductPageUrl = extractor.ExtractProductURL(liItem),
-                            Price = extractor.ExtractProductPrice(liItem),
-                            Description = extractor.ExtractProductDescription(liItem),
-                            ProductImageURL = extractor.ExtractProductImgURL(liItem)
+                            ProductPageUrl = extractedPageUrl,
+                            Description = extractor.ExtractProductDescription(extractedPageUrl),
+                            ProductImageURL = extractor.ExtractProductImgURL(liItem),
+                           
+
 
 
                         }

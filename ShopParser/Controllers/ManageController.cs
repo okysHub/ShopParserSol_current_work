@@ -56,7 +56,7 @@ namespace ShopParser.Controllers
 
 
             db = new Models.ProductContext();
-            graber = new Graber("https://cnc.prom.ua");
+            graber = new Graber("http://www.wartonlogo.com"); //https://cnc.prom.ua
             productModel = new List<Models.Product>();
 
 
@@ -103,9 +103,10 @@ namespace ShopParser.Controllers
                     Name = dataItem.Name,
                     Description = dataItem.Description,
                     Price = dataItem.Price,
-                    ProductImageURL = dataItem.ProductImageURL,
-                    ProductPageUrl = dataItem.ProductPageUrl,
-                    PriceHistory = priceHistory
+                    ProductImageURL = "http://www.wartonlogo.com"+dataItem.ProductImageURL,
+                    ProductPageUrl = "http://www.wartonlogo.com" + dataItem.ProductPageUrl,
+                    PriceHistory = priceHistory,
+                    MenuUrl=dataItem.MenuLink
 
                 });
 
@@ -118,6 +119,7 @@ namespace ShopParser.Controllers
 
             db.Products.AddRange(productModel);
             db.SaveChanges();
+
         }
 
         

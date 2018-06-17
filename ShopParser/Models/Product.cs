@@ -14,6 +14,7 @@ namespace ShopParser.Models
         private string _description;
         private string _productPageUrl;
         private string _productImageURL;
+        private string _menuUrl;
 
         [Display(Name = "Name")]
         public string Name { get => _name; set => _name = value; }
@@ -26,6 +27,7 @@ namespace ShopParser.Models
         [Display(Name = "Picture")]
         public string ProductImageURL { get => _productImageURL; set => _productImageURL = value; }
         public ICollection<ProductPriceHistory> PriceHistory { get; set; }
+        public string MenuUrl { get => _menuUrl; set => _menuUrl = value; }
 
         public Product()
         {
