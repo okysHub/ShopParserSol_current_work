@@ -21,8 +21,8 @@ namespace ShopParser.Controllers
 
 
         public ActionResult Index()
-        {
-           /* ExcelPackage excel = new ExcelPackage();
+        {/*
+            ExcelPackage excel = new ExcelPackage();
 
             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
 
@@ -48,23 +48,8 @@ namespace ShopParser.Controllers
 
         public ActionResult Tran()
         {
-            /* ExcelPackage excel = new ExcelPackage();
-
-             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
-
-             var data = db.Products;
-             workSheet.Cells[1, 1].LoadFromCollection(data, true);
-
-             using (var memoryStream = new MemoryStream())
-             {
-                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                 Response.AddHeader("content-disposition", "attachment;  filename=Contact.xlsx");
-                 excel.SaveAs(memoryStream);
-                 memoryStream.WriteTo(Response.OutputStream);
-                 Response.Flush();
-                 Response.End();
-             }
-             */
+            
+             
 
 
           

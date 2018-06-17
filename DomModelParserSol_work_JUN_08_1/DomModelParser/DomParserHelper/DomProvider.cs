@@ -89,32 +89,44 @@ namespace DomModelParser.DomParserHelper
                 menuDTOArray.Add(new Pages.PageComponents.ShopMenu { Href = invokedPage.ShopUrl+ancdDetail.Href, ItemName = ancdDetail.Name });
             }
             */
-            menuDTOArray.Add(
-                new Pages.PageComponents.ShopMenu { ItemName= "Static/15W/", Href= "http://www.wartonlogo.com/Projectors/Static/15W/" }
+            /*  menuDTOArray.Add(
+                  new Pages.PageComponents.ShopMenu { ItemName= "Static/15W/", Href= "http://www.wartonlogo.com/Projectors/Static/15W/" }
+                  );
+
+              menuDTOArray.Add(
+                  new Pages.PageComponents.ShopMenu { ItemName = "Static/30W/", Href = "http://www.wartonlogo.com/Projectors/Static/30W/" }
+                  );
+
+              menuDTOArray.Add(
+                 new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/15W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/15W/" }
+                 );
+
+              menuDTOArray.Add(
+                new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/30W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/30W/" }
                 );
 
-            menuDTOArray.Add(
-                new Pages.PageComponents.ShopMenu { ItemName = "Static/30W/", Href = "http://www.wartonlogo.com/Projectors/Static/30W/" }
-                );
-
-            menuDTOArray.Add(
-               new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/15W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/15W/" }
-               );
-
-            menuDTOArray.Add(
-              new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/30W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/30W/" }
+              menuDTOArray.Add(
+              new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/40W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/40W/" }
               );
 
-            menuDTOArray.Add(
-            new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/40W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/40W/" }
+              menuDTOArray.Add(
+             new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/60W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/60W/" }
+             );
+              menuDTOArray.Add(
+            new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/80W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/80W/" }
             );
-
+            */
             menuDTOArray.Add(
-           new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/60W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/60W/" }
+           new Pages.PageComponents.ShopMenu { ItemName = "Static", Href = "http://www.wartonlogo.com/Projectors/Static/" }
            );
             menuDTOArray.Add(
-          new Pages.PageComponents.ShopMenu { ItemName = "Rotatable/80W/", Href = "http://www.wartonlogo.com/Projectors/Rotatable/80W/" }
+           new Pages.PageComponents.ShopMenu { ItemName = "Rotatable", Href = "http://www.wartonlogo.com/Projectors/Rotatable/" }
+           );
+
+            menuDTOArray.Add(
+          new Pages.PageComponents.ShopMenu { ItemName = "Auto", Href = "http://www.wartonlogo.com/Projectors/Gobos%20Auto-switch/" }
           );
+            
 
 
             return menuDTOArray;
